@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+docs: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+summary:
+  types: [http]
+  http_schemes: [basic, bearer]
+  key_model: secret-api-key
+  test_live_separation: true
+schemes:
+  - name: basicAuth
+    type: http
+    scheme: basic
+    description: >-
+      Provide your secret API key as the HTTP Basic auth username value; no
+      password is required. All requests must be made over HTTPS.
+    sources: [https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md]
+  - name: bearerAuth
+    type: http
+    scheme: bearer
+    description: >-
+      Alternatively (e.g. for cross-origin requests) send the secret API key as
+      a bearer token: Authorization: Bearer [example key]
+    sources: [https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md]
+keys:
+  secret_keys:
+    - name: TEST secret key
+      prefix: sk_test_
+      purpose: Development; no real insurance policies are created.
+    - name: LIVE secret key
+      prefix: sk_live_
+      purpose: Production; issues real insurance policies and payments are owed by the distributor.
+  client_keys:
+    - name: TEST client key
+      purpose: Front-end (KASKO JS) testing with test credit card credentials; no real charges.
+    - name: LIVE client key
+      purpose: Front-end production; real charges and real policies.
+  product_keys:
+    description: Distinct product key issued per insurance product; supplied to both KASKO JS and the REST API.
+notes: >-
+  Requests requiring authentication may return 404 Not Found instead of 403
+  Forbidden to avoid leaking existence of sensitive resources. Keys can be
+  rotated by contacting support@kasko.io.
