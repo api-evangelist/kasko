@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+format: kasko-error-envelope
+envelope:
+  content_type: application/json
+  fields:
+    status: HTTP-style status of the error
+    message: Brief human-readable explanation of the error encountered
+    errors: Array listing one or more request fields that are invalid (when applicable)
+problems:
+  - status: 400
+    title: Bad Request
+    remediation: The server cannot understand the request; often a missing or invalid parameter.
+  - status: 401
+    title: Unauthorized
+    remediation: No valid API key provided for the request.
+  - status: 403
+    title: Forbidden
+    remediation: The API key does not have permission to perform the request.
+  - status: 404
+    title: Not Found
+    remediation: >-
+      Requested resource or endpoint could not be found. Note that authenticated
+      endpoints may return 404 instead of 403 to avoid leaking sensitive data.
+  - status: 405
+    title: Method Not Allowed
+    remediation: The requested HTTP method is not supported for the resource.
+  - status: 409
+    title: Conflict
+    remediation: The request conflicts with another request.
+  - status: 500
+    title: Internal Server Error
+    remediation: Something went wrong on KASKO's end.
+  - status: 502
+    title: Bad Gateway
+    remediation: Something went wrong on KASKO's end.
+  - status: 503
+    title: Service Unavailable
+    remediation: Something went wrong on KASKO's end.
+  - status: 504
+    title: Gateway Timeout
+    remediation: Something went wrong on KASKO's end.

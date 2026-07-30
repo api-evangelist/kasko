@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  Derived from the KASKO REST API reference (auth, errors, webhooks) and the
+  KASKO website compliance claims (kasko.io homepage / platform pages).
+standards:
+  - id: rest
+    conforms: true
+    evidence: KASKO API follows REST principles over HTTPS returning JSON (rest-api/introduction).
+  - id: http-basic-bearer-auth
+    conforms: true
+    evidence: Auth via HTTP Basic (secret key as username) or Bearer token (rest-api/introduction).
+  - id: webhooks-hmac-signing
+    conforms: true
+    evidence: Webhooks are signed with an HMAC (X-KASKO-Signature) over the payload body.
+  - id: oauth2
+    conforms: false
+    evidence: No OAuth2 flows documented; authentication is secret-key based.
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery documented.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors use a custom envelope (status/message/errors), not
+      application/problem+json.
+  - id: iso-27001
+    conforms: true
+    evidence: KASKO states "ISO27001 Certified" on kasko.io.
+  - id: gdpr
+    conforms: true
+    evidence: >-
+      EU-based InsurTech co-funded by the European Union; publishes a Privacy
+      Notice (kasko.io/privacy-notice).

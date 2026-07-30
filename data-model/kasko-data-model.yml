@@ -1,0 +1,76 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  Derived from the KASKO REST API object references (Quote, Offer, Payment,
+  Policy, Data API dataset) at docs.kasko.io/kasko-api-documentation.
+docs: https://docs.kasko.io/kasko-api-documentation/rest-api/resources.md
+entities:
+  - name: quote
+    description: A priced insurance quote generated from product pricing logic.
+    key_fields: [token, gross_payment_amount, extra_data]
+  - name: offer
+    description: A customer-facing offer wrapping a quote for a product/distributor.
+    id_field: id
+    key_fields: [id, product_id, distributor_id, insurer_id, item_id, touchpoint_id, status, quote, currency, email]
+  - name: payment
+    description: A payment transaction against a policy via a configured provider.
+    id_field: id
+    id_object: payment
+    key_fields: [id, livemode, provider, method, status, policy_id, customer_id, charge_id, token, refunds]
+  - name: policy
+    description: An issued insurance policy.
+    id_field: id
+    id_prefix_test: tpol_
+    key_fields: [id, product_id, distributor_id, insurer_policy_id, status, start_date, end_date, quote, currency, email]
+  - name: dataset
+    description: A domain dataset used by the Data API to populate/validate form fields.
+    id_field: datasetId
+    item_id_prefix: dai_
+relationships:
+  - from: offer
+    to: quote
+    type: has_one
+    via: quote
+  - from: offer
+    to: product
+    type: belongs_to
+    via: product_id
+  - from: offer
+    to: distributor
+    type: belongs_to
+    via: distributor_id
+  - from: offer
+    to: insurer
+    type: belongs_to
+    via: insurer_id
+  - from: policy
+    to: quote
+    type: has_one
+    via: quote
+  - from: policy
+    to: product
+    type: belongs_to
+    via: product_id
+  - from: policy
+    to: distributor
+    type: belongs_to
+    via: distributor_id
+  - from: payment
+    to: policy
+    type: belongs_to
+    via: policy_id
+  - from: payment
+    to: customer
+    type: belongs_to
+    via: customer_id
+  - from: payment
+    to: refund
+    type: has_many
+    via: refunds
+flow:
+  name: Insurance transaction
+  steps: [quote, offer, payment, policy]
+  description: >-
+    The core lifecycle: generate a Quote from pricing, wrap it in an Offer,
+    take Payment, and issue a Policy. Webhooks (e.g. policy.created) notify of
+    state changes.

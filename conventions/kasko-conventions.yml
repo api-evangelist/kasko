@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+authentication:
+  style: HTTP Basic (secret key as username) or Bearer token
+  transport: HTTPS required; plain HTTP fails
+  docs: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+  see: authentication/kasko-authentication.yml
+request_tracing:
+  request_id_header: X-Request-Id
+  description: >-
+    Every API response carries an X-Request-Id header identifying the request;
+    quote it to support for fastest resolution.
+error_envelope:
+  format: kasko-error-envelope
+  fields:
+    - status
+    - message
+    - errors   # array of invalid request fields, when applicable
+  content_type: application/json
+  see: errors/kasko-problem-types.yml
+media_type:
+  responses: application/json
+test_live:
+  model: separate TEST and LIVE secret/client keys; livemode boolean on objects
+  see: sandbox/kasko-sandbox.yml
+webhooks:
+  signature_header: X-KASKO-Signature
+  signature_scheme: HMAC-SHA1 hex digest of the body keyed with the endpoint secret
+  event_header: X-KASKO-Event
+  delivery_header: X-KASKO-Delivery
+  see: asyncapi/kasko-webhooks.yml
+idempotency:
+  documented: false
+  note: No idempotency-key contract is documented in the public REST API reference.
+pagination:
+  documented: false
+  note: No cross-cutting pagination scheme documented in the public reference.
+versioning:
+  kasko_js: v2 (https://eu1.kaskojs.com/v2)
+  note: REST resources are unversioned in the path; front-end widget is versioned (v2).

@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kasko.io/kasko-api-documentation/kasko-js/kasko-js.md
+docs: https://docs.kasko.io/kasko-api-documentation/kasko-js/kasko-js.md
+components:
+  - family: KASKO JS
+    kind: embeddable-widget
+    description: >-
+      End-to-end embeddable insurance widget that loads onto a distributor's
+      site and runs the full insurance transaction (quote to policy) inline.
+    loader:
+      script: https://eu1.kaskojs.com/v2
+      version: v2
+      include: <script type="text/javascript" src="https://eu1.kaskojs.com/v2"></script>
+    container: <div id="kasko-widget-container"></div>
+    config:
+      product_key: required (obtained from Product Builder product Integration section)
+      modes:
+        - name: webview
+          description: Default mode; loads the widget inline and auto-adjusts container height responsively.
+    notes: >-
+      Container height should be left auto so KASKO JS can size the widget
+      responsively. The integration snippet is generated per product in Product
+      Builder.

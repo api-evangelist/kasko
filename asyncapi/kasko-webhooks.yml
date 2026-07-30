@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kasko.io/kasko-api-documentation/webhooks/webhooks.md
+spec_type: Webhooks
+docs: https://docs.kasko.io/kasko-api-documentation/webhooks/webhooks.md
+transport:
+  style: HTTP POST callback to a subscriber-configured URL
+  payload: full event details as JSON in the POST body
+  ack: subscriber must return a 2xx status code; any non-2xx (including 3xx) is treated as failure
+subscription:
+  scope: account-level; each account may register multiple webhooks with different event sets
+  modes: [live, test]
+  configuration: created on request by contacting techsupport@kasko.io
+signature:
+  header: X-KASKO-Signature
+  scheme: HMAC hex digest of the payload body keyed with the endpoint webhook secret (sha1 example)
+  example: sha1=88dd4948bf8fc1e991a574179fc668c76d329db2
+headers:
+  - name: X-KASKO-Event
+    description: The event type that was triggered.
+    example: policy.created
+  - name: X-KASKO-Delivery
+    description: A GUID identifying the payload and event being sent.
+    example: baf59150f9a60c1c0e6a700e6f531676
+  - name: X-KASKO-Signature
+    description: HMAC signature of the payload for verification.
+events:
+  # Event catalog is configured per account; the documented example event is below.
+  - name: policy.created
+    resource: policy
+    description: Emitted when a policy is created (documented example event).
+notes: >-
+  KASKO signs every webhook so subscribers can verify authenticity via HMAC.
+  The full per-account event catalog is configured with KASKO technical support;
+  only the documented example event (policy.created) is captured verbatim here —
+  no events were fabricated.

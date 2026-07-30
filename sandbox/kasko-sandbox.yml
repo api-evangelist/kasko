@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.kasko.io/kasko-api-documentation/testing.md
+docs:
+  - https://docs.kasko.io/kasko-api-documentation/keys.md
+  - https://docs.kasko.io/kasko-api-documentation/testing.md
+test_live_separation:
+  model: >-
+    KASKO issues both TEST and LIVE keys. TEST keys operate against test data
+    with no real insurance policies created and no real charges; LIVE keys
+    create real policies and process real payments.
+  secret_keys:
+    test_prefix: sk_test_
+    live_prefix: sk_live_
+  client_keys: [TEST, LIVE]
+  livemode_flag: objects carry a livemode boolean (true = test mode, false = live)
+  policy_id_prefix_test: tpol_   # observed test policy id prefix in payment examples
+hosts:
+  production_data_api: https://api.kaskocloud.com
+  qa_sandbox_example: https://api.qa-u.eu1.kaskoqa.com
+payment_testing:
+  invoice_provider:
+    description: Invoice/insurer payments can be completed with a single POST call in test mode.
+    example: |
+      curl --request POST \
+        --url 'https://api.qa-u.eu1.kaskoqa.com/payments?key={{ public_key }}' \
+        --header 'Content-Type: application/json' \
+        --data '{ "token": {{ payment_token }}, "method": "invoice", "provider": "invoice", "policy_id": {{ policy_id }} }'
+  stripe_provider:
+    description: >-
+      When Stripe is the configured payment provider, use Stripe's published
+      test cards and testing guide.
+    reference: https://stripe.com/docs/testing
+notes: >-
+  Test credentials differ per configured payment service provider. Product keys
+  are issued per insurance product and must be supplied to both KASKO JS and the
+  REST API. No fabricated test values — all values above are published in the
+  KASKO testing and keys documentation.

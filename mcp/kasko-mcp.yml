@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://www.kasko.io/llms.txt
+description: >-
+  The KASKO marketing site (www.kasko.io) is built on Wix and exposes a live,
+  unauthenticated Wix Site MCP endpoint advertised in its /llms.txt. The server
+  provides Wix's generic site tools for agentic access to public site content
+  and business details (not the KASKO insurance REST API, which uses secret API
+  keys). Tool list captured verbatim from the published llms.txt.
+server:
+  name: kasko-site
+  transport: http
+  url: https://www.kasko.io/_api/mcp
+  auth: none
+  vendor: Wix Site MCP
+  docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
+tools:
+  - name: GetBusinessDetails
+    description: Retrieves business and site details such as timezone, email, phone, and address.
+  - name: SearchInSite
+    description: Searches the site for information.
+  - name: SearchSiteApiDocs
+    description: Retrieves API documentation for the Wix business solutions installed on this site.
+  - name: GenerateVisitorToken
+    description: Creates a new visitor session and obtains a visitor access token for the site.
+  - name: CallWixSiteAPI
+    description: Calls API methods on the site to perform actions on a visitor's behalf.
+  - name: ReadFullDocsArticle
+    description: Fetches a complete article from the Wix developer documentation portal.
+  - name: ReadFullDocsMethodSchema
+    description: Fetches the full schema for a Wix API method.
+notes: >-
+  No authentication is required to connect. Only public information accessible
+  on the site is available. This is a site-content MCP; KASKO's insurance
+  platform API (api.kaskocloud.com) is a separate secret-key REST API.
