@@ -1,7 +1,15 @@
 aid: kasko
 name: Kasko
-description: Kasko is a company surfaced as a portfolio company of seedcamp and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  KASKO is an InsurTech-as-a-Service provider offering a modular, no-/low-code
+  platform that helps insurers, MGAs, reinsurers, and brokers design, launch,
+  and operate digital insurance products end to end. Its full insurance
+  operating stack exposes platform functionality and data through a REST API
+  (Quote, Offer, Payment, Policy and Data resources), an embeddable KASKO JS
+  widget for front-end distribution, and account-level signed webhooks. KASKO
+  also provides EU/UK market-access and licensing support, advisory, and
+  recruitment services, and is ISO 27001 certified and co-funded by the
+  European Union.
 url: https://raw.githubusercontent.com/api-evangelist/kasko/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +17,57 @@ x-backed-by:
 - seedcamp
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://static.wixstatic.com/media/660ad6_7730ccc446d245348dc0376d978ac52f~mv2.png
 tags:
 - Company
-apis: []
+- Insurance
+- InsurTech
+- Insurance API
+- Policy Management
+- Payments
+- Webhooks
+- Embedded Insurance
+- No-Code
+apis:
+- name: KASKO REST API
+  description: >-
+    REST API for the KASKO insurance platform. All platform functionality and
+    data is accessible via the API, covering the Quote, Offer, Payment and
+    Policy insurance transaction flow plus a Data API for domain datasets.
+    Authenticated with secret API keys (HTTP Basic or Bearer) over HTTPS.
+  humanURL: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+  baseURL: https://api.kaskocloud.com
+  tags:
+  - Insurance
+  - Insurance API
+  - Policy Management
+  - Payments
+  properties:
+  - type: Documentation
+    url: https://docs.kasko.io/kasko-api-documentation/
+  - type: APIReference
+    url: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+  - type: GettingStarted
+    url: https://docs.kasko.io/kasko-api-documentation/rest-api/getting-started.md
+  - type: Authentication
+    url: authentication/kasko-authentication.yml
+  - type: Webhooks
+    url: asyncapi/kasko-webhooks.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -22,4 +75,50 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://kasko.io
+  url: https://www.kasko.io
+- type: DeveloperPortal
+  url: https://docs.kasko.io/kasko-api-documentation/
+- type: Documentation
+  url: https://docs.kasko.io/kasko-api-documentation/
+- type: APIReference
+  url: https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md
+- type: GettingStarted
+  url: https://docs.kasko.io/kasko-api-documentation/rest-api/getting-started.md
+- type: Blog
+  url: https://www.kasko.io/insights
+- type: Support
+  url: https://www.kasko.io/contact
+- type: TermsOfService
+  url: https://www.kasko.io/terms-conditions
+- type: PrivacyPolicy
+  url: https://www.kasko.io/privacy-notice
+- type: LLMsTxt
+  url: llms/kasko-llms.txt
+- type: MCPServer
+  url: mcp/kasko-mcp.yml
+  name: KASKO Site MCP (Wix) manifest
+- type: Authentication
+  url: authentication/kasko-authentication.yml
+- type: Conventions
+  url: conventions/kasko-conventions.yml
+- type: ErrorCatalog
+  url: errors/kasko-problem-types.yml
+- type: Sandbox
+  url: sandbox/kasko-sandbox.yml
+- type: Components
+  url: components/kasko-components.yml
+- type: Webhooks
+  url: asyncapi/kasko-webhooks.yml
+- type: Conformance
+  url: conformance/kasko-conformance.yml
+- type: Compliance
+  url: https://www.kasko.io
+- type: DataModel
+  url: data-model/kasko-data-model.yml
+- type: DomainSecurity
+  url: security/kasko-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
