@@ -64,6 +64,106 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kasko is a company surfaced as a portfolio company of seedcamp and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+KASKO is an InsurTech-as-a-Service provider offering a modular, no-/low-code platform that helps insurers, MGAs, reinsurers, and brokers design, launch, and operate digital insurance products end to end. Its full insurance operating stack exposes platform functionality and data through a REST API (Quote, Offer, Payment, Policy and Data resources), an embeddable KASKO JS widget for front-end distribution, and account-level signed webhooks. KASKO also provides EU/UK market-access and licensing support, advisory, and recruitment services, and is ISO 27001 certified and co-funded by the European Union.
 
-Backed by: seedcamp — http://kasko.io
+**Areas:** Company · Insurance · Insurtech · Insurance API · Policy Management · Payments · Webhook · Embedded Insurance · No-Code
+
+## Kasko on APIs.io
+
+Everything profiled for Kasko is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kasko/](https://apis.io/providers/kasko/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [KASKO REST API](https://apis.io/apis/kasko/kasko-rest-api/) — REST API for the KASKO insurance platform. All platform functionality and data is accessible via the API, covering the Quote, Offer, Payment and Policy…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Kasko Webhooks](https://apis.io/asyncapis/kasko/kasko-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [kasko-site](https://apis.io/servers/kasko/kasko-site/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kasko Authentication](https://apis.io/security/kasko/kasko-authentication/)
+- [Kasko Domain Security](https://apis.io/security/kasko/kasko-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.kasko.io)
+- [Documentation](https://docs.kasko.io/kasko-api-documentation/)
+- [Getting started](https://docs.kasko.io/kasko-api-documentation/rest-api/getting-started.md)
+- [API reference](https://docs.kasko.io/kasko-api-documentation/rest-api/introduction.md)
+- [Support](https://www.kasko.io/contact)
+- [Blog](https://www.kasko.io/insights)
+- [Compliance](https://www.kasko.io)
+- [Terms of service](https://www.kasko.io/terms-conditions)
+- [Privacy policy](https://www.kasko.io/privacy-notice)
+
+## API Evangelist rating
+
+**Kin Score 40.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 64.3 |
+| Access clarity | 28.9 |
+
+**Agent readiness 24.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 26.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kasko/](https://apis.io/providers/kasko/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kasko: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kasko/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
